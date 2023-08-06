@@ -1,0 +1,353 @@
+{
+	"info": {
+		"_postman_id": "7baa9fbb-3fd0-4259-932d-42a4122d88d0",
+		"name": "API Яндекс. Погода",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26939863",
+		"_collection_link": "https://www.postman.com/orange-zodiac-516508/workspace/cw2/collection/26939863-7baa9fbb-3fd0-4259-932d-42a4122d88d0?action=share&creator=26939863&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Positiv",
+			"item": [
+				{
+					"name": "valid coordinates 50, 55",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Yandex-API-Key",
+								"value": "e3b37614-d92f-48ea-9423-21fd2c361ecc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}?lon=50&lat=55&lang=ru_RU",
+							"host": [
+								"{{baseURL}}"
+							],
+							"query": [
+								{
+									"key": "lon",
+									"value": "50"
+								},
+								{
+									"key": "lat",
+									"value": "55"
+								},
+								{
+									"key": "lang",
+									"value": "ru_RU"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Negativ",
+			"item": [
+				{
+					"name": "Invalid coordinates 0, 0",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Yandex-API-Key",
+								"value": "e3b37614-d92f-48ea-9423-21fd2c361ecc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}?lon=0&lat=0&lang=ru_RU",
+							"host": [
+								"{{baseURL}}"
+							],
+							"query": [
+								{
+									"key": "lon",
+									"value": "0"
+								},
+								{
+									"key": "lat",
+									"value": "0"
+								},
+								{
+									"key": "lang",
+									"value": "ru_RU"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid coordinates 91, -91",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Yandex-API-Key",
+								"value": "e3b37614-d92f-48ea-9423-21fd2c361ecc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}?lon=91&lat=-91&lang=ru_RU",
+							"host": [
+								"{{baseURL}}"
+							],
+							"query": [
+								{
+									"key": "lon",
+									"value": "91"
+								},
+								{
+									"key": "lat",
+									"value": "-91"
+								},
+								{
+									"key": "lang",
+									"value": "ru_RU"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "no coordinates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Yandex-API-Key",
+								"value": "e3b37614-d92f-48ea-9423-21fd2c361ecc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}?lon=&lat&lang",
+							"host": [
+								"{{baseURL}}"
+							],
+							"query": [
+								{
+									"key": "lon",
+									"value": ""
+								},
+								{
+									"key": "lat",
+									"value": null
+								},
+								{
+									"key": "lang",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid coordinates 1000, 1000",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Yandex-API-Key",
+								"value": "e3b37614-d92f-48ea-9423-21fd2c361ecc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}?lon=1000&lat=1000&lang=en_US",
+							"host": [
+								"{{baseURL}}"
+							],
+							"query": [
+								{
+									"key": "lon",
+									"value": "1000"
+								},
+								{
+									"key": "lat",
+									"value": "1000"
+								},
+								{
+									"key": "lang",
+									"value": "en_US"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid value lang RU_RU",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Yandex-API-Key",
+								"value": "e3b37614-d92f-48ea-9423-21fd2c361ecc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}?lon=50&lat=55&lang=RU_RU",
+							"host": [
+								"{{baseURL}}"
+							],
+							"query": [
+								{
+									"key": "lon",
+									"value": "50"
+								},
+								{
+									"key": "lat",
+									"value": "55"
+								},
+								{
+									"key": "lang",
+									"value": "RU_RU"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "https://api.weather.yandex.ru/v2/forecast",
+			"type": "string"
+		},
+		{
+			"value": "",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"value": "",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"value": "",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"value": "",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}
